@@ -1,2 +1,2 @@
-import App from './src/pages/mainView';
+import App from './src/router';
 export default App;
