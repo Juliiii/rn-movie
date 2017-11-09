@@ -9,7 +9,7 @@ import { px2dp } from '../../../utils/px2dp';
 
 const ListItem = ({item}) => {
 	return (
-		<View key={item.id} style={styles.wrapper}>
+		<View style={styles.wrapper}>
 			<Text>{item.n}</Text>
 		</View>
 	);

@@ -7,9 +7,15 @@ import {
 } from 'react-native';
 import city from '../../../constants/cities';
 
-
 class QuickIndexList extends React.Component {
-	ListItem = ({item}) => (<Text style={styles.text}>{item}</Text>)
+
+	onPress = (item) => {
+		const index = city.indexs.indexOf(item);
+		this.props.onPress && this.props.onPress(index);
+	}
+
+
+	ListItem = ({item}) => (<Text onPress={() => this.onPress(item)} style={styles.text}>{item}</Text>)
 
 	keyExtractor = (item) => item
 

@@ -3232,11 +3232,18 @@ Object.entries(map).map(([key, value]) => {
 	cityIndexs.push(key);
 });
 
-sortCities.sort((a, b) => a.key > b.key);
+sortCities.sort((a, b) => {
+	if (a.key > b.key) return 1;
+	else if (a.key < b.key) return -1;
+	else return 0;
+});
 cityIndexs.sort();
 cityIndexs = ['定位', '最近', '最热', ...cityIndexs];
 
 export default {
 	indexs: cityIndexs,
-	cities: sortCities
+	cities: sortCities,
+	allcities: cities
 };
+
+// sortCities.map(item => console.log(item.key));
