@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 	wrapper: {
 		position: 'absolute',
 		right: 0,
-		top: 40,
+		top: 70,
 		zIndex: 10,
 		backgroundColor: 'transparent'
 	},

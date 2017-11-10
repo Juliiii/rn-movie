@@ -6,6 +6,7 @@ import {
 
 import CityCell from './CityCell';
 import { px2dp } from '../../../utils/px2dp';
+import { white } from '../../../constants/styles';
 
 const CityCellCollection = ({item}) => {
 	return (
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
 	wrapper: {
 		flexDirection: 'row',
 		flexWrap: 'wrap',
-		backgroundColor: '#ffffff',
+		backgroundColor: white,
 		paddingTop: px2dp(5),
 		paddingBottom: px2dp(5)
 	}

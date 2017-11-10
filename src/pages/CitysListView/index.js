@@ -19,11 +19,11 @@ class SectionListExample extends React.PureComponent {
 		section: [{
 			key: '定位城市',
 			renderItem: CityCellCollection,
-			data: [[{'n': '123', id: 123}, {'n': '1213', id: 1234}, {'n': '123', id: 123}, {'n': '123', id: 123}]]
+			data: [[{'n': '123', id: 1231}, {'n': '1213', id: 1234}, {'n': '123', id: 123}, {'n': '123', id: 123}]]
 		}, {
 			key: '最近访问城市',
 			renderItem: CityCellCollection,
-			data: [[{'n': '123', id: 123}, {'n': '123', id: 123}, {'n': '123', id: 123}]]
+			data: [[{'n': '123', id: 1232}, {'n': '123', id: 1235}, {'n': '123', id: 123}]]
 		}, {
 			key: '热门城市',
 			renderItem: CityCellCollection,

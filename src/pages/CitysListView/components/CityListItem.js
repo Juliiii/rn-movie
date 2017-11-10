@@ -4,7 +4,7 @@ import {
 	Text,
 	StyleSheet,
 } from 'react-native';
-import { WW } from '../../../constants/styles';
+import { WW, white } from '../../../constants/styles';
 import { px2dp } from '../../../utils/px2dp';
 
 const ListItem = ({item}) => {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 		paddingBottom: px2dp(2),
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		backgroundColor: '#ffffff'
+		backgroundColor: white
 	}
 });
 

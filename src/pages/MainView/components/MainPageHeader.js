@@ -15,9 +15,9 @@ import {
 	TouchableOpacity,
 	Animated,
 } from 'react-native';
-import { px2dp } from '../../../../utils/px2dp';
+import { px2dp } from '../../../utils/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { WW, red } from '../../../../constants/styles';
+import { WW, red, white, borderColor } from '../../../constants/styles';
 
 export default class Header extends Component {
 	constructor(props) {
@@ -25,7 +25,6 @@ export default class Header extends Component {
 		this.state = {
 			city: '选择',
 			tabs: ['正在热映', '即将上映'],
-			activeTab: '正在热映',
 			xPosition: new Animated.Value(0)
 		};
 	}
@@ -48,11 +47,11 @@ export default class Header extends Component {
 	}
 
 	switchTab = (val) => {
-		const { activeTab, tabs, xPosition } = this.state;
+		const { tabs, xPosition } = this.state;
+		const { activeTab } = this.props;
 		if (val === activeTab) return;
-		this.setState({
-			activeTab: val
-		});
+
+		this.props.setActiveTab(val);
 
 		const offset = tabs.indexOf(val) * px2dp(80);
 
@@ -65,7 +64,7 @@ export default class Header extends Component {
 	}
 
 	createTab = (tab) => {
-		const { activeTab } = this.state;
+		const { activeTab } = this.props;
 
 		return (
 			<TouchableOpacity onPress={() => this.switchTab(tab)} key={tab}>
@@ -86,9 +85,8 @@ export default class Header extends Component {
 			<View style={styles.header}>
 				<Icon.Button
 					name="ios-arrow-down"
-					color="#333"
 					activeOpacity={1}
-					backgroundColor="#ffffff"
+					backgroundColor={white}
 					style={styles.button}
 					iconStyle={styles.iconStyle} 
 					onPress={this.toCityView}>
@@ -117,7 +115,7 @@ export default class Header extends Component {
 				<Icon
 					name="ios-search"
 					size={24}
-					color="#FA5555"
+					color={red}
 					style={styles.search}
 				/>
 			</View>
@@ -137,8 +135,8 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		height: px2dp(40),
 		width: WW,
-		backgroundColor: 'white',
-		borderBottomColor: '#bfbfbf',
+		backgroundColor: white,
+		borderBottomColor: borderColor,
 		borderBottomWidth: 1/PixelRatio.get(),
 	},
 	button: {

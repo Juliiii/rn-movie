@@ -5,7 +5,7 @@ import {
 	StyleSheet
 } from 'react-native';
 
-import { WW } from '../../../constants/styles';
+import { WW, llightWhite } from '../../../constants/styles';
 import { px2dp } from '../../../utils/px2dp';
 
 const SectionHeader = ({section}) => (
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 		height: px2dp(30),
 		justifyContent: 'center',
 		alignItems: 'flex-start',
-		backgroundColor: '#f6f6f6',
+		backgroundColor: llightWhite,
 		paddingLeft: px2dp(8)
 	},
 });

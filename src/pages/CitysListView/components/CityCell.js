@@ -6,7 +6,7 @@ import {
 	PixelRatio
 } from 'react-native';
 import { px2dp } from '../../../utils/px2dp';
-import { WW } from '../../../constants/styles';
+import { WW, lightWhite, borderColor } from '../../../constants/styles';
 
 const CityCell = ({text}) => {
 	return (
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 		width: WW / 3 - px2dp(20),
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#f8f8f8',
+		backgroundColor: lightWhite,
 		marginRight: px2dp(10),
 		marginLeft: px2dp(10),
 		marginTop: px2dp(5),
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 		borderBottomLeftRadius: px2dp(3),
 		borderBottomRightRadius: px2dp(3),
 		borderWidth: 1 / PixelRatio.get(),
-		borderColor: '#bfbfbf'
+		borderColor
 	}
 });
 
