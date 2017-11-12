@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	FlatList,
 	Text,
 	View,
 	StyleSheet
@@ -15,18 +14,14 @@ class QuickIndexList extends React.PureComponent {
 	}
 
 
-	ListItem = ({item}) => (<Text onPress={() => this.onPress(item)} style={styles.text}>{item}</Text>)
-
-	keyExtractor = (item) => item
+	ListItem = ({item}) => (<Text onPress={() => this.onPress(item)} key={item} style={styles.text}>{item}</Text>)
 
 	render() {
 		return (
 			<View style={styles.wrapper}>
-				<FlatList
-					data={city.indexs}
-					renderItem={this.ListItem}
-					keyExtractor={this.keyExtractor}
-				/>
+				{
+					city.indexs.map(item => this.ListItem({item}))
+				}
 			</View>
 		);
 	}

@@ -19,7 +19,7 @@ class SectionListExample extends React.PureComponent {
 		section: [{
 			key: '定位城市',
 			renderItem: CityCellCollection,
-			data: [[{'n': '123', id: 1231}, {'n': '1213', id: 1234}, {'n': '123', id: 123}, {'n': '123', id: 123}]]
+			data: [[{'n': '123', id: 123}]]
 		}, {
 			key: '最近访问城市',
 			renderItem: CityCellCollection,
@@ -37,7 +37,7 @@ class SectionListExample extends React.PureComponent {
 		this.seclist.scrollToLocation({
 			sectionIndex,
 			itemIndex: -1,
-			animated: true
+			animated: false
 		});
 	}
 
@@ -45,15 +45,15 @@ class SectionListExample extends React.PureComponent {
 		if (index === 0 || index === 1) {
 			return {
 				length: px2dp(40),
-				offset: px2dp(30) + index * px2dp(40),
+				offset: px2dp(30) + px2dp(40),
 				index
 			};
 		}
 
 		if (index === 2) {
 			return {
-				length: px2dp(210),
-				offset: px2dp(240),
+				length: px2dp(160),
+				offset: px2dp(160) + px2dp(30),
 				index
 			};
 		}
@@ -78,7 +78,6 @@ class SectionListExample extends React.PureComponent {
 					renderSectionHeader={SectionHeader}
 					sections={section}
 					getItemLayout={this.getItemLayout}
-					initialNumToRender={25}
 				/>
 			</View>
 		);

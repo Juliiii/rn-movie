@@ -371,7 +371,7 @@ const movies =
           "id": 233497,
           "image": "http://img5.mtime.cn/mt/2017/11/02/103433.88068217_1280X720X2.jpg",
           "isFilter": false,
-          "isTicket": false,
+          "isTicket": true,
           "isVideo": true,
           "locationName": "中国",
           "rDay": 17,
