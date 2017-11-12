@@ -1,8 +1,9 @@
+// TODO LOADMORE
+
 import React, { Component } from 'react';
 import { 
 	FlatList,
 	StyleSheet,
-	Text
 } from 'react-native';
 import HPMListItem from './components/ListItem';
 import movies from '../../../../constants/movies';
@@ -12,12 +13,11 @@ class HotPlayMovieList extends Component {
 	keyExtractor = (item) => item.id;
 
 	render() {
-		console.log(movies.data);
 		return (
 			<FlatList
-				initialNumToRender={15}
+				initialNumToRender={6}
 				style={styles.list}
-				data={movies.data}
+				data={movies.data.slice(0, 20)}
 				keyExtractor={this.keyExtractor}
 				renderItem={HPMListItem}
 			/>

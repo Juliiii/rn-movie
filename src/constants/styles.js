@@ -5,13 +5,15 @@ import {
 const { width, height } = Dimensions.get('window');
 
 const red = '#FA5555';
-const white = '#ffffff';
+const white = '#fafafa';
 const lightWhite = '#f8f8f8';
 const llightWhite = '#f6f6f6';
-const borderColor = '#e9eaec';
-const yellow = '#ffeb3b';
+const borderColor = '#cccccc';
+const orange = '#ffb74d';
 const blue = '#0091ea';
 const grey = '#80848f';
+const yellow = '#ffeb3b';
+
 
 const msmFontSize = 12;
 const smFontSize = 14;
@@ -27,11 +29,12 @@ export {
 	borderColor,
 	lightWhite,
 	llightWhite,
-	yellow,
+	orange,
 	blue,
 	msmFontSize,
 	smFontSize,
 	mdFontSize,
 	lgFontSize,
-	grey
+	grey,
+	yellow
 };

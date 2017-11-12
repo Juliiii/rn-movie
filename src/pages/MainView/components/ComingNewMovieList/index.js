@@ -1,15 +1,14 @@
 import React from 'react';
 import { 
-	View,
 	StyleSheet
 } from 'react-native';
-import HopefulMovieList  from './components/HopefulMovieList';
+import NewMovieList from './components/NewMovieList';
 
 const ComingNewMovieList = () => {
 	return (
-		<View style={styles.wrapper}>
-			<HopefulMovieList />
-		</View>
+		<NewMovieList 
+			style={styles.wrapper}
+		/>
 	);
 };
 

@@ -1,0 +1,5 @@
+const defaultImage = '';
+
+export {
+	defaultImage
+};

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import city from '../../../constants/cities';
 
-class QuickIndexList extends React.Component {
+class QuickIndexList extends React.PureComponent {
 
 	onPress = (item) => {
 		const index = city.indexs.indexOf(item);

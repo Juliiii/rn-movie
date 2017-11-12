@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { 
 	FlatList,
 	View,
@@ -10,17 +10,16 @@ import movies from '../../../../../constants/nmovies';
 import { px2dp } from '../../../../../utils/px2dp';
 import { white } from '../../../../../constants/styles';
 
-class HopefulMovieList extends Component {
+class HopefulMovieList extends PureComponent {
 	keyExtractor = (item) => item.id
 
 	render() {
 		return (
 			<View style={styles.wrapper}>
-				<View style={styles.header}>
-					<Text>近期最受期待</Text>
-				</View>
+				<Text style={styles.header}>近期最受期待</Text>
 				<FlatList
 					horizontal
+					initialNumToRender={5}
 					keyExtractor={this.keyExtractor}
 					data={movies.attention}
 					renderItem={HopefulMovieListItem}
@@ -33,7 +32,8 @@ class HopefulMovieList extends Component {
 const styles = StyleSheet.create({
 	wrapper: {
 		backgroundColor: white,
-		paddingBottom: px2dp(10)
+		paddingBottom: px2dp(10),
+		marginBottom: px2dp(10)
 	},
 	header: {
 		paddingLeft: px2dp(10),

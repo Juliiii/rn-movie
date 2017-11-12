@@ -23,18 +23,24 @@ const HopefulMovieListItem = ({item}) => {
 	);
 };
 
+const WrapperHeight = 140;
+const WrapperWidth = 95;
+const ImageHeight = 100;
+const ImageWidth = 75;
+const WrapperPadding = 10;
+
 const styles = StyleSheet.create({
 	wrapper: {
-		height: px2dp(140),
-		width: px2dp(95),
-		paddingLeft: px2dp(10),
-		paddingRight: px2dp(10),
+		height: px2dp(WrapperHeight),
+		width: px2dp(WrapperWidth),
+		paddingLeft: px2dp(WrapperPadding),
+		paddingRight: px2dp(WrapperPadding),
 		alignItems: 'flex-start',
 		backgroundColor: white
 	},
 	image: {
-		height: px2dp(100),
-		width: px2dp(75)
+		height: px2dp(ImageHeight),
+		width: px2dp(ImageWidth)
 	},
 	title: {
 		marginTop: px2dp(4),
@@ -45,12 +51,14 @@ const styles = StyleSheet.create({
 		color: grey
 	},
 	wantSee: {
+		width: px2dp(ImageWidth),
 		position: 'absolute',
 		top: px2dp(85),
 		left: px2dp(10),
-		backgroundColor: 'transparent',
+		backgroundColor: 'rgba(0, 0, 0, .5)',
 		color: yellow,
-		fontSize: msmFontSize
+		fontSize: msmFontSize,
+		paddingLeft: px2dp(3)
 	}
 });
 
