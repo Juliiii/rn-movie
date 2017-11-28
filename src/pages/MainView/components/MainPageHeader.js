@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import { px2dp } from '../../../utils/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { WW, red, white, borderColor } from '../../../constants/styles';
+import { WW, red, white, borderColor, border1px } from '../../../constants/styles';
 
 export default class Header extends Component {
 	constructor(props) {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 		width: WW,
 		backgroundColor: white,
 		borderBottomColor: borderColor,
-		borderBottomWidth: 1/PixelRatio.get(),
+		borderBottomWidth: border1px,
 	},
 	button: {
 		width: px2dp(60)

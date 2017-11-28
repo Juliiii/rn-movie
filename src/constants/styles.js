@@ -6,7 +6,7 @@ import {
 const { width, height } = Dimensions.get('window');
 
 const red = '#ef6967';
-const white = '#fafafa';
+const white = '#ffffff';
 const lightWhite = '#f8f8f8';
 const llightWhite = '#f5f5f5';
 const borderColor = '#e5e5e5';
@@ -42,5 +42,5 @@ export {
 	grey,
 	yellow,
 	border1px,
-	llgFontSize
+	llgFontSize,
 };

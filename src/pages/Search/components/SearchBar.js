@@ -7,7 +7,7 @@ import {
 	TouchableOpacity
 } from 'react-native';
 
-import { WW, red, mdFontSize, borderColor, llightWhite, lightWhite, grey } from '../../../constants/styles';
+import { WW, red, mdFontSize, borderColor, llightWhite, lightWhite, grey, border1px } from '../../../constants/styles';
 import { px2dp } from '../../../utils/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -39,7 +39,9 @@ const styles = StyleSheet.create({
 		paddingRight: px2dp(10),
 		flexDirection: 'row',
 		alignItems: 'center',
-		backgroundColor: llightWhite
+		backgroundColor: llightWhite,
+		borderBottomWidth: border1px,
+		borderBottomColor: borderColor
 	},
 	input: {
 		height: px2dp(30),
