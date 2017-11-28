@@ -4,7 +4,7 @@ import {
 	Text,
 	StyleSheet
 } from 'react-native';
-import { white, llgFontSize, grey, border1px, lgFontSize } from '../../../constants/styles';
+import { white, grey, lgFontSize } from '../../../constants/styles';
 import Cell from '../../../components/Cell';
 import cities from '../../../constants/movies';
 import { px2dp } from '../../../utils/px2dp';

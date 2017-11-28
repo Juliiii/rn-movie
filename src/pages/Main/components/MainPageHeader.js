@@ -11,7 +11,6 @@ import {
 	StyleSheet,
 	Text,
 	View,
-	PixelRatio,
 	TouchableOpacity,
 	Animated,
 } from 'react-native';
@@ -30,14 +29,6 @@ export default class Header extends Component {
 	}
 
 	componentDidMount() {
-		// navigator.geolocation.getCurrentPosition(
-		//   (position) => {
-		//     var initialPosition = JSON.stringify(position);
-		//     AlertIOS.alert('123', initialPosition);
-		//   },
-		//   (error) => alert(error.message),
-		//   {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-		// ); 
 	}
 
 

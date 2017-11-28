@@ -1,7 +1,8 @@
 import { StackNavigator } from 'react-navigation';
-import Main from '../pages/MainView';
-import City from '../pages/CitysListView';
+import Main from '../pages/Main';
+import City from '../pages/Citys';
 import Search from '../pages/Search';
+import Detail from '../pages/Detail';
 
 const RootAppNavigator = StackNavigator(
 	{
@@ -13,6 +14,9 @@ const RootAppNavigator = StackNavigator(
 		},
 		Search: {
 			screen: Search
+		},
+		Detail: {
+			screen: Detail
 		}
 	},
 	{
