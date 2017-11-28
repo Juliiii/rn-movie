@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import { px2dp } from '../../../utils/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { WW, red, white, borderColor } from '../../../constants/styles';
+import { WW, red, white, borderColor, border1px } from '../../../constants/styles';
 
 export default class Header extends Component {
 	constructor(props) {
@@ -44,6 +44,12 @@ export default class Header extends Component {
 	toCityView = () => {
 		const { navigate } = this.props.navigation;
 		navigate('City');
+	}
+
+
+	toSearch = () => {
+		const { navigate } = this.props.navigation;
+		navigate('Search');
 	}
 
 	switchTab = (val) => {
@@ -76,7 +82,6 @@ export default class Header extends Component {
 			</TouchableOpacity>
 		);
 	}
-
 
 	render() {
 		const { city, tabs } =  this.state;
@@ -114,6 +119,7 @@ export default class Header extends Component {
 
 				<Icon
 					name="ios-search"
+					onPress={this.toSearch}
 					size={24}
 					color={red}
 					style={styles.search}
@@ -137,7 +143,7 @@ const styles = StyleSheet.create({
 		width: WW,
 		backgroundColor: white,
 		borderBottomColor: borderColor,
-		borderBottomWidth: 1/PixelRatio.get(),
+		borderBottomWidth: border1px,
 	},
 	button: {
 		width: px2dp(60)

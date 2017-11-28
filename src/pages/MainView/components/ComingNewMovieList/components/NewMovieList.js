@@ -10,7 +10,9 @@ import cities from '../../../../../constants/nmovies';
 import { numberToDay } from '../../../../../utils/time';
 
 let map = {};
+let cur_month = new Date().getMonth() + 1;
 for (const _ of cities.moviecomings) {
+	if (_.rMonth !== cur_month) continue;
 	const ts = new Date(Number(_.rYear), Number(_.rMonth - 1), Number(_.rDay)).getTime();
 	map[ts] = map[ts] ? [...map[ts], _] : [_];
 }
