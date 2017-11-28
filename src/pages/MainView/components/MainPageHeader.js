@@ -46,6 +46,12 @@ export default class Header extends Component {
 		navigate('City');
 	}
 
+
+	toSearch = () => {
+		const { navigate } = this.props.navigation;
+		navigate('Search');
+	}
+
 	switchTab = (val) => {
 		const { tabs, xPosition } = this.state;
 		const { activeTab } = this.props;
@@ -76,7 +82,6 @@ export default class Header extends Component {
 			</TouchableOpacity>
 		);
 	}
-
 
 	render() {
 		const { city, tabs } =  this.state;
@@ -114,6 +119,7 @@ export default class Header extends Component {
 
 				<Icon
 					name="ios-search"
+					onPress={this.toSearch}
 					size={24}
 					color={red}
 					style={styles.search}

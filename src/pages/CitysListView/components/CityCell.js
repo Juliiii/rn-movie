@@ -3,10 +3,9 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	PixelRatio
 } from 'react-native';
 import { px2dp } from '../../../utils/px2dp';
-import { WW, lightWhite, borderColor } from '../../../constants/styles';
+import { WW, llightWhite, borderColor, border1px } from '../../../constants/styles';
 
 const CityCell = ({text}) => {
 	return (
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
 		width: WW / 3 - px2dp(20),
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: lightWhite,
+		backgroundColor: llightWhite,
 		marginRight: px2dp(10),
 		marginLeft: px2dp(10),
 		marginTop: px2dp(5),
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
 		borderTopRightRadius: px2dp(3),
 		borderBottomLeftRadius: px2dp(3),
 		borderBottomRightRadius: px2dp(3),
-		borderWidth: 1 / PixelRatio.get(),
+		borderWidth: border1px,
 		borderColor
 	}
 });
