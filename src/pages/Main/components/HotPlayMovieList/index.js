@@ -11,7 +11,9 @@ import movies from '../../../../constants/movies';
 class HotPlayMovieList extends Component {
 	
 	keyExtractor = (item) => item.id;
-	renderItem = (props) => <HPMListItem {...props} navigation={this.props.navigation} /> 
+	
+	renderItem = (props) => <HPMListItem {...props} />
+
 	render() {
 		return (
 			<FlatList

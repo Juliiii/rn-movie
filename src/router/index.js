@@ -1,31 +1,12 @@
-import { StackNavigator } from 'react-navigation';
-import Main from '../pages/Main';
-import City from '../pages/Citys';
-import Search from '../pages/Search';
-import Detail from '../pages/Detail';
+import React from 'react';
+import { connect } from 'react-redux';
+import { addNavigationHelpers } from 'react-navigation';
+import RootAppNavigator from './routes';
 
-const RootAppNavigator = StackNavigator(
-	{
-		Main: {
-			screen: Main
-		},
-		City: {
-			screen: City
-		},
-		Search: {
-			screen: Search
-		},
-		Detail: {
-			screen: Detail
-		}
-	},
-	{
-		initialRouteName: 'Main',
-		headerMode: 'none',
-		navigationOptions: {
-			gesturesEnabled: true
-		}
-	}
+const HOC = ({dispatch, nav}) => (
+	<RootAppNavigator
+		navigation={addNavigationHelpers({dispatch, state: nav})}
+	/>
 );
 
-export default RootAppNavigator;
+export default connect(state => ({nav: state.nav}) , null)(HOC);

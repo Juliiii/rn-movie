@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 
 import { px2dp } from '../../../../../utils/px2dp';
+import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 import { 
 	WW,
 	white,
@@ -23,16 +25,12 @@ import {
 
 const defaultImg = 'http://www.easynai.com/images/%E6%9A%82%E6%97%A0%E5%9B%BE%E7%89%87.png';
 
-const HPMListItem = ({item, navigation}) => {
+const HPMListItem = ({item, toDetail}) => {
 
 	function hasPlayed (rd) {
 		const now = new Date(), y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
 		const _y = rd.slice(0, 4), _m = rd.slice(4, 6), _d = rd.slice(6);
 		return new Date(y, m, d).getTime() < new Date(Number(_y), Number(_m), Number(_d));
-	}
-
-	function toDetail () {
-		navigation.navigate('Detail');
 	}
 
 	return (
@@ -70,6 +68,9 @@ const HPMListItem = ({item, navigation}) => {
 		</TouchableHighlight>
 	);
 };
+
+
+
 const styles = StyleSheet.create({
 	wrapper: {
 		flexDirection: 'row',
@@ -145,4 +146,10 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default HPMListItem;
+const mapDispatch = dispatch => ({
+	toDetail() {
+		dispatch(NavigationActions.navigate({ routeName: 'Detail' }));
+	}
+});
+
+export default connect(null, mapDispatch)(HPMListItem);

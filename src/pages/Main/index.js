@@ -30,7 +30,7 @@ class MainPage extends Component {
 		return (
 			<View style={styles.wrapper}>
 				<StatusBar hidden />
-				<Header {...this.props} setActiveTab={this.setActiveTab} activeTab={activeTab} />
+				<Header setActiveTab={this.setActiveTab} activeTab={activeTab} />
 				{activeTab === '正在热映' ? <HotPlayMovieList navigation={navigation} /> : <ComingNewMovieList navigation={navigation}/>}
 			</View>
 		);

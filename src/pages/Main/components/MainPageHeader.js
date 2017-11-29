@@ -7,18 +7,20 @@ time: 2017.11.7
 */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
 	StyleSheet,
 	Text,
 	View,
 	TouchableOpacity,
-	Animated,
+	Animated
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { px2dp } from '../../../utils/px2dp';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { WW, red, white, borderColor, border1px } from '../../../constants/styles';
 
-export default class Header extends Component {
+class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -26,21 +28,6 @@ export default class Header extends Component {
 			tabs: ['正在热映', '即将上映'],
 			xPosition: new Animated.Value(0)
 		};
-	}
-
-	componentDidMount() {
-	}
-
-
-	toCityView = () => {
-		const { navigate } = this.props.navigation;
-		navigate('City');
-	}
-
-
-	toSearch = () => {
-		const { navigate } = this.props.navigation;
-		navigate('Search');
 	}
 
 	switchTab = (val) => {
@@ -76,7 +63,7 @@ export default class Header extends Component {
 
 	render() {
 		const { city, tabs } =  this.state;
-
+		const { toCityView, toSearch } = this.props;
 		return (
 			<View style={styles.header}>
 				<Icon.Button
@@ -85,7 +72,7 @@ export default class Header extends Component {
 					backgroundColor={white}
 					style={styles.button}
 					iconStyle={styles.iconStyle} 
-					onPress={this.toCityView}>
+					onPress={toCityView}>
 					<Text style={styles.iconButtonText}>{city}</Text>
 				</Icon.Button>
 
@@ -110,7 +97,7 @@ export default class Header extends Component {
 
 				<Icon
 					name="ios-search"
-					onPress={this.toSearch}
+					onPress={toSearch}
 					size={24}
 					color={red}
 					style={styles.search}
@@ -179,3 +166,14 @@ const styles = StyleSheet.create({
 		paddingRight: px2dp(5)
 	}
 });
+
+const mapDispatch = dispatch => ({
+	toCityView() {
+		dispatch(NavigationActions.navigate({routeName: 'City'}));
+	},
+	toSearch() {
+		dispatch(NavigationActions.navigate({routeName: 'Search'}));
+	}
+});
+
+export default connect(null, mapDispatch)(Header);

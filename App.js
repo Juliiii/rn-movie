@@ -1,2 +1,2 @@
-import App from './src/router';
+import App from './src/HOCApp';
 export default App;
