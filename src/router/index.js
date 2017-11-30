@@ -9,4 +9,4 @@ const HOC = ({dispatch, nav}) => (
 	/>
 );
 
-export default connect(state => ({nav: state.nav}) , null)(HOC);
+export default connect(state => ({nav: state.get('nav').toJS()}) , null)(HOC);
