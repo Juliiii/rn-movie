@@ -63,6 +63,8 @@ class SectionListExample extends React.PureComponent {
 			index
 		};
 	}
+
+	renderItem = (props) => <ListItem {...props} />;
 	
 	render() {
 		const { section } = this.state;
@@ -72,7 +74,7 @@ class SectionListExample extends React.PureComponent {
 				<SectionList
 					ref={(e) => this.seclist = e}
 					enableVirtualization
-					renderItem={ListItem}
+					renderItem={this.renderItem}
 					keyExtractor={(item) => item.id}
 					ItemSeparatorComponent={ItemSeparator}
 					renderSectionHeader={SectionHeader}

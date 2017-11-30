@@ -1,12 +1,11 @@
-// TODO LOADMORE
-
 import React, { Component } from 'react';
 import { 
 	FlatList,
 	StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
 import HPMListItem from './components/ListItem';
-import movies from '../../../../constants/movies';
+// import movies from '../../../../constants/movies';
 
 class HotPlayMovieList extends Component {
 	
@@ -15,11 +14,12 @@ class HotPlayMovieList extends Component {
 	renderItem = (props) => <HPMListItem {...props} />
 
 	render() {
+		const {movies} = this.props;
 		return (
 			<FlatList
 				initialNumToRender={6}
 				style={styles.list}
-				data={movies.data.slice(0, 10)}
+				data={movies}
 				keyExtractor={this.keyExtractor}
 				renderItem={this.renderItem}
 			/>
@@ -33,4 +33,8 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default HotPlayMovieList;
+const mapState = state => ({
+	movies: state.get('movies').get('data').toArray()
+});
+
+export default connect(mapState)(HotPlayMovieList);

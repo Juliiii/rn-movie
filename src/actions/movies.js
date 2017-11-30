@@ -1,15 +1,30 @@
 import * as actionTypes from '../actionTypes/movies';
 
-export const getMovies = ({locationId}) => ({
-	type: actionTypes.GETMOVIES,
+export const getHotPlayMovies = ({locationId}) => ({
+	type: actionTypes.GETHOTPLAYMOVIES,
 	locationId
 });
 
-export const getMovies_Success = ({data}) => ({
-	type: actionTypes.GETMOVIES_SUCCESS,
+export const getHotPlayMovies_Success = ({data}) => ({
+	type: actionTypes.GETHOTPLAYMOVIES_SUCCESS,
 	data
 });
 
-export const getMovies_Fail = () => ({
-	type: actionTypes.GETMOVIES_FAIL
+export const getHotPlayMovies_Fail = () => ({
+	type: actionTypes.GETHOTPLAYMOVIES_FAIL
+});
+
+export const getComingnewMovies = ({locationId}) => ({
+	type: actionTypes.GETCOMINGNEWMOVIES,
+	locationId
+});
+
+export const getComingnewMovies_Success = ({comingNewMovies, hopefulMovies}) => ({
+	type: actionTypes.GETCOMINGNEWMOVIES_SUCCESS,
+	comingNewMovies,
+	hopefulMovies
+});
+
+export const getComingnewMovies_Fail = () => ({
+	type: actionTypes.GETCOMINGNEWMOVIES_FAIL
 });

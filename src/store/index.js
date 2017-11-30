@@ -1,10 +1,11 @@
-import reducers from '../reducers';
+import * as reducers from '../reducers';
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import RootNavigator from '../router/routes';
 import { fromJS } from 'immutable';
+import sagas from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const initAction = RootNavigator.router.getActionForPathAndParams('Main');
@@ -15,7 +16,8 @@ const nav = (state = initState, action) => {
 };
 
 const rootReducers = combineReducers({
-	...reducers, nav
+	...reducers,
+	nav
 });
 
 const middlewares = [sagaMiddleware];
@@ -24,5 +26,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const store = createStore(rootReducers, applyMiddleware(...middlewares));
+
+for (const saga of sagas) {
+	sagaMiddleware.run(saga);
+}
 
 export default store;
