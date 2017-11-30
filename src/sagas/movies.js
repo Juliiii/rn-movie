@@ -33,9 +33,16 @@ export function* watchGetHotPlayMovies() {
 	}
 }
 
+export function* watchComingnewMovies() {
+	while(true) {
+		const { locationId } = yield take(actionTypes.GETCOMINGNEWMOVIES);
+		yield call(getComingnewMovies, locationId);
+	}
+}
 
 
 
 export default function* root() {
 	yield fork(watchGetHotPlayMovies);
+	yield fork(watchComingnewMovies);
 }
