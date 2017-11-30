@@ -26,12 +26,12 @@ class MainPage extends Component {
 
 	render() {
 		const { activeTab } = this.state;
-
+		const { navigation } = this.props;
 		return (
 			<View style={styles.wrapper}>
 				<StatusBar hidden />
-				<Header {...this.props} setActiveTab={this.setActiveTab} activeTab={activeTab} />
-				{activeTab === '正在热映' ? <HotPlayMovieList /> : <ComingNewMovieList />}
+				<Header setActiveTab={this.setActiveTab} activeTab={activeTab} />
+				{activeTab === '正在热映' ? <HotPlayMovieList navigation={navigation} /> : <ComingNewMovieList navigation={navigation}/>}
 			</View>
 		);
 	}

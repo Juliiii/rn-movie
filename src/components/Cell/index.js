@@ -5,7 +5,7 @@ import {
 	StyleSheet
 } from 'react-native';
 import { px2dp } from '../../utils/px2dp';
-import { llightWhite, border1px, borderColor } from '../../constants/styles';
+import { llightWhite } from '../../constants/styles';
 
 const Cell = ({text, style}) => {
 	return (

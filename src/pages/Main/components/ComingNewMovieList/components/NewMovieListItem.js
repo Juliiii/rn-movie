@@ -2,6 +2,7 @@ import React from 'react';
 import { 
 	View,
 	TouchableHighlight,
+	TouchableOpacity,
 	Text,
 	StyleSheet,
 	Image,
@@ -22,45 +23,31 @@ import {
 
 const defaultImg = 'http://www.easynai.com/images/%E6%9A%82%E6%97%A0%E5%9B%BE%E7%89%87.png';
 
-const HPMListItem = ({item}) => {
-
-	function hasPlayed (rd) {
-		const now = new Date(), y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
-		const _y = rd.slice(0, 4), _m = rd.slice(4, 6), _d = rd.slice(6);
-		return new Date(y, m, d).getTime() < new Date(Number(_y), Number(_m), Number(_d));
-	}
-
+const CNMListItem = ({item}) => {
 	return (
-		<View style={styles.wrapper}>
-			<Image style={styles.image} source={{uri: item.img ? item.img : defaultImg}}/>
-			<View style={styles.rightPart}>
-				<View style={styles.movieInfo}>
-					<Text style={styles.movieCName}>{item.tCn}</Text>
-					<View style={styles.movieOtherInfoWrapper}>
-						{!hasPlayed(item.rd) ?
-							(<Text style={styles.movieOtherInfo}>
-								{item.r == -1 ? '暂无评分' : '观众评 '}
-								{item.r !== -1 ? <Text style={styles.movieScore}>{item.r}</Text> : null}
-							</Text>) : 
+		<TouchableHighlight>
+			<View style={styles.wrapper}>
+				<Image style={styles.image} source={{uri: item.image ? item.image : defaultImg}}/>
+				<View style={styles.rightPart}>
+					<View style={styles.movieInfo}>
+						<Text style={styles.movieCName} numberOfLines={1}>{item.title}</Text>
+						<View style={styles.movieOtherInfoWrapper}>
 							<Text style={styles.movieOtherInfo}>
 								<Text style={styles.movieScore}>{item.wantedCount}</Text>
 								人想看
 							</Text>
-						}
-						<Text style={styles.movieActors} numberOfLines={1}>主演：{item.actors.split(' / ').join(',')}</Text>
-						{!hasPlayed(item.rd) 
-							? <Text style={styles.moviePlay}>今天{item.cC}家影院放映了{item.NearestShowtimeCount}场</Text>
-							: <Text style={styles.movieComeing}>{`${item.rd.slice(0, 4)}-${item.rd.slice(4, 6)}-${item.rd.slice(6)}上映`}</Text>
-						}
+							<Text style={styles.movieActors} numberOfLines={1}>主演：{`${item.actor1},${item.actor2}`}</Text>
+							<Text style={styles.movieComeing}>{`${item.rYear}-${item.rMonth}-${item.rDay}上映`}</Text>
+						</View>
 					</View>
+					<TouchableOpacity
+						style={[styles.button, item.isTicket ? styles.buttonSale : styles.buttonWantSee]}
+					>
+						<Text style={styles.buttonText}>{item.isTicket ? '预售' : '想看'}</Text>
+					</TouchableOpacity>
 				</View>
-				<TouchableHighlight
-					style={[styles.button, !hasPlayed(item.rd) ? styles.buttonBuy : styles.buttonSale]}
-				>
-					<Text style={styles.buttonText}>{!hasPlayed(item.rd) ? '购票' : '预售'}</Text>
-				</TouchableHighlight>
 			</View>
-		</View>
+		</TouchableHighlight>
 	);
 };
 const styles = StyleSheet.create({
@@ -95,8 +82,8 @@ const styles = StyleSheet.create({
 		backgroundColor: red,
 		borderRadius: px2dp(5)
 	},
-	buttonBuy: {
-		backgroundColor: red
+	buttonWantSee: {
+		backgroundColor: orange
 	},
 	buttonSale: {
 		backgroundColor: blue
@@ -138,4 +125,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default HPMListItem;
+export default CNMListItem;
