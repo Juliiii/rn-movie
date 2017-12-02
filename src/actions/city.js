@@ -5,3 +5,15 @@ export const selectCity = ({name, locationId}) => ({
 	name,
 	locationId
 });
+
+export const updateCity = ({name, locationId}) => ({
+	type: actionTypes.UPDATECITY,
+	name,
+	locationId
+});
+
+export const locateCity = ({name, locationId}) => ({
+	type: actionTypes.LOCATECITY,
+	name,
+	locationId
+});

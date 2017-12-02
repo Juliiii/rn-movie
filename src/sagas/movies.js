@@ -8,18 +8,18 @@ import * as action from '../actions/movies';
 export function* getHotPlayMovies(locationId) {
 	try {
 		const data = yield api.getHotPlayMovies({locationId});
-		yield put(action.getMovies_Success({data: data.ms}));
+		yield put(action.getHotPlayMovies_Success({data: data.ms}));
 	} catch (err) {
-		yield put(action.getMovies_Fail());
+		yield put(action.getHotPlayMovies_Fail());
 	}
 }
 
 export function* getComingnewMovies(locationId) {
 	try {
 		const data = yield api.getComingNewMovies({locationId});
-		yield put(action.getMovies_Success({data: data.ms}));
+		yield put(action.getComingnewMovies_Success({data: data.ms}));
 	} catch (err) {
-		yield put(action.getMovies_Fail());
+		yield put(action.getComingnewMovies_Fail());
 	}
 }
 
@@ -28,7 +28,7 @@ export function* getComingnewMovies(locationId) {
 
 export function* watchGetHotPlayMovies() {
 	while(true) {
-		const { locationId } = yield take(actionTypes.GETMOVIES);
+		const { locationId } = yield take(actionTypes.GETHOTPLAYMOVIES);
 		yield call(getHotPlayMovies, locationId);
 	}
 }

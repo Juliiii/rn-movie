@@ -4,6 +4,7 @@ import {
 	StyleSheet,
 	TouchableOpacity
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { WW, white } from '../../../constants/styles';
 import { px2dp } from '../../../utils/px2dp';
 import { connect } from 'react-redux';
@@ -38,7 +39,8 @@ const styles = StyleSheet.create({
 
 const mapDispatch = dispatch => ({
 	getMoviesByCity({locationId}) {
-		dispatch(actions.getMovies({locationId}));
+		dispatch(actions.getHotPlayMovies({locationId}));
+		dispatch(NavigationActions.navigate( {routeName: 'Main'} ));
 	}
 });
 

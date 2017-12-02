@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import HPMListItem from './components/ListItem';
-// import movies from '../../../../constants/movies';
 
 class HotPlayMovieList extends Component {
 	
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({
 });
 
 const mapState = state => ({
-	movies: state.get('movies').get('data').toArray()
+	movies: state.get('movies').get('hotplayMovies').toArray()
 });
 
 export default connect(mapState)(HotPlayMovieList);
