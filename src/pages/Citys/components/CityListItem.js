@@ -1,17 +1,25 @@
 import React from 'react';
 import {
-	View,
 	Text,
 	StyleSheet,
+	TouchableOpacity
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { WW, white } from '../../../constants/styles';
 import { px2dp } from '../../../utils/px2dp';
+import { connect } from 'react-redux';
+import * as actions from '../../../actions/movies';
 
-const ListItem = ({item}) => {
+const ListItem = ({item, getMoviesByCity}) => {
+
+	function onClick() {
+		getMoviesByCity({locationId: item.id});
+	}
+
 	return (
-		<View style={styles.wrapper}>
+		<TouchableOpacity style={styles.wrapper} onPress={onClick}>
 			<Text>{item.n}</Text>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
@@ -29,4 +37,12 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default ListItem;
+const mapDispatch = dispatch => ({
+	getMoviesByCity({locationId}) {
+		dispatch(actions.getHotPlayMovies({locationId}));
+		dispatch(NavigationActions.navigate( {routeName: 'Main'} ));
+	}
+});
+
+
+export default connect(null, mapDispatch)(ListItem);

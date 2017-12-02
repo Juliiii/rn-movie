@@ -30,32 +30,6 @@ class Header extends Component {
 		};
 	}
 
-<<<<<<< HEAD:src/pages/Main/components/MainPageHeader.js
-=======
-	componentDidMount() {
-		// navigator.geolocation.getCurrentPosition(
-		//   (position) => {
-		//     var initialPosition = JSON.stringify(position);
-		//     AlertIOS.alert('123', initialPosition);
-		//   },
-		//   (error) => alert(error.message),
-		//   {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-		// ); 
-	}
-
-
-	toCityView = () => {
-		const { navigate } = this.props.navigation;
-		navigate('City');
-	}
-
-
-	toSearch = () => {
-		const { navigate } = this.props.navigation;
-		navigate('Search');
-	}
-
->>>>>>> master:src/pages/MainView/components/MainPageHeader.js
 	switchTab = (val) => {
 		const { tabs, xPosition } = this.state;
 		const { activeTab } = this.props;
@@ -123,11 +97,7 @@ class Header extends Component {
 
 				<Icon
 					name="ios-search"
-<<<<<<< HEAD:src/pages/Main/components/MainPageHeader.js
 					onPress={toSearch}
-=======
-					onPress={this.toSearch}
->>>>>>> master:src/pages/MainView/components/MainPageHeader.js
 					size={24}
 					color={red}
 					style={styles.search}

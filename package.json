@@ -16,6 +16,7 @@
 		"react-redux": "^5.0.6",
 		"redux": "^3.7.2",
 		"redux-immutable": "^4.0.0",
+		"redux-persist": "^5.4.0",
 		"redux-saga": "^0.16.0"
 	},
 	"devDependencies": {
